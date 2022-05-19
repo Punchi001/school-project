@@ -1,0 +1,39 @@
+{% extends 'Home/base.html' %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+{% block content %}
+
+<div class="container">
+  <h3>REGISTER UNITS</h3>
+  {% if  user.reporting.report   %}
+  {% if user.units %}
+  <h5>you have allready registered units for this semester</h5>
+  <a href="{% url 'units' %}">View</a>
+  
+  
+  
+{%  else %}
+<div class="form-group">
+  <form method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+    <button>REGISTER</button>
+  </form>
+</div>
+{% endif %}
+{% endif %}
+  <div class="container">
+    
+  </div>
+
+
+</div>
+{% endblock %}
+</body>
+</html>
+
+

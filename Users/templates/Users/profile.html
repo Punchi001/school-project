@@ -1,0 +1,31 @@
+{% extends 'Home/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+<body>
+  <center>
+{% block content %}
+
+<div class="box">
+
+  <img src="{{ user.profile.pic.url }}" alt="">
+
+  <h4>{{ user.regno }}</h4>
+  <h4>{{ user.profile.l_name }} {{ user.profile.f_name }}</h4>
+  <h5>{{ user.profile.email }}</h5>
+  <h5></h5>
+  <h5>{{ user.schooling.school }}</h5>
+  {% if user.reporting.report %}
+  <h3 style="color: green; text-decoration: none;"><input type="checkbox" style="pointer-events: none;accent-color: green;" checked placeholder="REPORTED" title="re">REPORTED</h3>
+  {% else %}
+  <a style='color: red;' href="{% url 'report' %}">REPORT NOW</a> {% endif %}
+</div>
+</div>
+<a class="btn btn-primary" href="{% url 'update-profile' user.id %}" role="button">Edit</a>
+</div>
+{% endblock %}
+</center>
+</body>
+</head>
+</html>

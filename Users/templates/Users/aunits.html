@@ -1,0 +1,20 @@
+{% extends 'Home/base.html' %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+{% block content %}
+  
+<div class="container">
+  <h3> Domain Name</h3>
+  
+  {% for unit in prof %}
+  <h3>{{ unit.course }}</h3>
+    <p>.           {{ unit.unit }}</p>
+  
+ {% endfor %}
+{% endblock %}
+</body>
+</html>
